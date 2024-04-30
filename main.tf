@@ -20,7 +20,8 @@ provider "aws" {
 // Include modules for specific configurations
 
 module "vpc" {
-  source = "github.com/lily4499/terraform-aws-eks-v1.git/eks-modules/vpc"
+  source = "lily4499/eks-v1/aws//vpc"
+  version = ">= 1.0.0, < 2.0.0"
   vpc_id = module.vpc.vpc_id
   vpc_cidr       = var.vpc_cidr
   dns_hostnames  = var.dns_hostnames
@@ -35,7 +36,8 @@ module "vpc" {
 
 
 module "eks" {
-  source = "github.com/lily4499/terraform-aws-eks-v1.git/eks-modules/eks"
+  source = "lily4499/eks-v1/aws//eks"
+  version = ">= 1.0.0, < 2.0.0"
   vpc_id = module.vpc.vpc_id
 
   vpc_cidr       = var.vpc_cidr
